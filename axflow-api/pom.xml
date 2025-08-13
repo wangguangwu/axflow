@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.axflow</groupId>
+        <artifactId>axflow</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>axflow-api</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- 只编译期依赖用例层 -->
+        <dependency>
+            <groupId>com.axflow</groupId>
+            <artifactId>axflow-application</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.axflow</groupId>
+            <artifactId>axflow-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Web & 日志 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- ↓↓↓ 实现类仅在运行期出现（不参与编译） ↓↓↓ -->
+        <dependency>
+            <groupId>com.axflow</groupId>
+            <artifactId>axflow-infrastructure</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.axflow</groupId>
+            <artifactId>axflow-adapter</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
