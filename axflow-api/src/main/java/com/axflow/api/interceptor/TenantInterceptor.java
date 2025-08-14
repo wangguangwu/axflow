@@ -1,7 +1,7 @@
 package com.axflow.api.interceptor;
 
 import com.axflow.common.dto.response.ApiResponse;
-import com.axflow.common.enums.ApiResponseStatusEnum;
+import com.axflow.common.enums.ResponseStatusEnum;
 import com.axflow.common.tenant.TenantContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class TenantInterceptor implements HandlerInterceptor {
             response.setStatus(HttpStatus.BAD_REQUEST.value());
             response.getWriter().write(
                     new ObjectMapper().writeValueAsString(
-                            ApiResponse.fail(ApiResponseStatusEnum.FAILED.getCode(), "租户ID不能为空")
+                            ApiResponse.fail(ResponseStatusEnum.FAILED.getCode(), "租户ID不能为空")
                     )
             );
             // 终止请求
@@ -38,6 +38,6 @@ public class TenantInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler, Exception ex) {
-        TenantContext.clear(); // 请求完成后清理租户ID
+        TenantContext.clear();
     }
 }

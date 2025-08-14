@@ -1,7 +1,7 @@
 package com.axflow.api.handler;
 
 import com.axflow.common.dto.response.ApiResponse;
-import com.axflow.common.enums.ApiResponseStatusEnum;
+import com.axflow.common.enums.ResponseStatusEnum;
 import com.axflow.common.exception.BusinessException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
                 request.getMethod(),
                 request.getRequestURI(),
                 e);
-        return ApiResponse.fail(ApiResponseStatusEnum.FAILED.getCode(), "系统繁忙，请稍后重试（错误ID: " + errorId + ")");
+        return ApiResponse.fail(ResponseStatusEnum.FAILED.getCode(), "系统繁忙，请稍后重试（错误ID: " + errorId + ")");
     }
 }
 

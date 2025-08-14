@@ -1,6 +1,6 @@
 package com.axflow.common.dto.response;
 
-import com.axflow.common.enums.ApiResponseStatusEnum;
+import com.axflow.common.enums.ResponseStatusEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -32,8 +32,8 @@ public class ApiResponse<T> {
     // 快速生成成功响应
     public static <T> ApiResponse<T> success(T data) {
         return new ApiResponse<T>()
-                .setCode(ApiResponseStatusEnum.SUCCESS.getCode())
-                .setMessage(ApiResponseStatusEnum.SUCCESS.getDesc())
+                .setCode(ResponseStatusEnum.SUCCESS.getCode())
+                .setMessage(ResponseStatusEnum.SUCCESS.getDesc())
                 .setData(data);
     }
 

@@ -8,7 +8,7 @@ import lombok.Getter;
  * @author wangguangwu
  */
 @Getter
-public enum ApiResponseStatusEnum {
+public enum ResponseStatusEnum {
 
     SUCCESS(200, "成功"),
     FAILED(500, "失败");
@@ -16,7 +16,7 @@ public enum ApiResponseStatusEnum {
     private final Integer code;
     private final String desc;
 
-    ApiResponseStatusEnum(Integer code, String desc) {
+    ResponseStatusEnum(Integer code, String desc) {
         this.code = code;
         this.desc = desc;
     }
