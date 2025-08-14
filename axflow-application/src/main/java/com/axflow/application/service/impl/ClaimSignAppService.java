@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ClaimSignAppService implements ClaimSignUseCase {
 
-
     @Override
     @Transactional
     public String claimSign(ClaimSignReq req) {

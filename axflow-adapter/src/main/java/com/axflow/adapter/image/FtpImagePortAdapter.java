@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
  *
  * @author wangguangwu
  */
-@Component
 @Slf4j
+@Component("ftp")
 public class FtpImagePortAdapter implements ImagePort {
 
     @Override

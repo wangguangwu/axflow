@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
- * RocketMQ 模拟实现（仅打印日志）
+ * RocketMQ 模拟实现
  *
  * @author wangguangwu
  */
@@ -21,6 +21,5 @@ public class RocketMqPortAdapter implements MqPort {
     @Override
     public void subscribe(String topic, MessageListener listener) {
         log.info("[RocketMQ] 模拟订阅主题: {}", topic);
-        // 不实际触发回调
     }
 }

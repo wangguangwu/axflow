@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author wangguangwu
  */
 @Slf4j
-@Component
+@Component("oss")
 public class OssImagePortAdapter implements ImagePort {
 
     @Override
