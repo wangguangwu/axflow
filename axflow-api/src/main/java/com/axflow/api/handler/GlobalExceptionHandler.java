@@ -1,6 +1,6 @@
 package com.axflow.api.handler;
 
-import com.axflow.common.dto.response.ApiResponse;
+import com.axflow.application.dto.response.ApiResponse;
 import com.axflow.common.enums.ResponseStatusEnum;
 import com.axflow.common.exception.BusinessException;
 import jakarta.servlet.http.HttpServletRequest;

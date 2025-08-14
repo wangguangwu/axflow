@@ -1,4 +1,4 @@
-package com.axflow.dto.response;
+package com.axflow.application.dto.response;
 
 import com.axflow.common.enums.ResponseStatusEnum;
 import lombok.Data;

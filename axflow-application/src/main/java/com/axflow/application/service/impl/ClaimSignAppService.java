@@ -1,9 +1,9 @@
 package com.axflow.application.service.impl;
 
+import com.axflow.application.dto.casesign.CaseSignRequest;
 import com.axflow.application.router.ImageRouter;
 import com.axflow.application.router.MqRouter;
 import com.axflow.application.service.ClaimSignUseCase;
-import com.axflow.common.dto.request.CaseSignRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

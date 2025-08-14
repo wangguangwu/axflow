@@ -1,6 +1,7 @@
 package com.axflow.application.service;
 
-import com.axflow.common.dto.request.CaseSignRequest;
+
+import com.axflow.application.dto.casesign.CaseSignRequest;
 
 /**
  * 签收用例接口（对外能力契约）

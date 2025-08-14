@@ -1,6 +1,6 @@
 package com.axflow.api.interceptor;
 
-import com.axflow.common.dto.response.ApiResponse;
+import com.axflow.application.dto.response.ApiResponse;
 import com.axflow.common.enums.ResponseStatusEnum;
 import com.axflow.common.tenant.TenantContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
