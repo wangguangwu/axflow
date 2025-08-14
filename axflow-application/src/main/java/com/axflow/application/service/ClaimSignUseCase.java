@@ -1,6 +1,6 @@
 package com.axflow.application.service;
 
-import com.axflow.common.dto.request.ClaimSignReq;
+import com.axflow.common.dto.request.CaseSignRequest;
 
 /**
  * 签收用例接口（对外能力契约）
@@ -15,6 +15,6 @@ public interface ClaimSignUseCase {
      * @param req 请求
      * @return 签收号
      */
-    String claimSign(ClaimSignReq req);
+    String claimSign(CaseSignRequest req);
 
 }

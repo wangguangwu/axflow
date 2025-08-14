@@ -1,10 +1,8 @@
-package com.axflow.common.dto.request;
+package com.axflow.dto.request.casesign;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 /**
  * 案件签收入参
@@ -14,10 +12,11 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClaimSignReq {
+public class CaseSignRequest {
 
-    private String claimCode;
-    private List<String> imageRefs;
-    private String operatorId;
+    /**
+     * 案件号
+     */
+    private String caseCode;
 
 }

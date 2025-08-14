@@ -11,6 +11,7 @@
         <module name="axflow-domain" />
         <module name="axflow-common" />
         <module name="axflow-adapter" />
+        <module name="axflow-dto" />
         <module name="axflow-application" />
         <module name="axflow-api" />
       </profile>
@@ -19,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="axflow-common" options="" />
+      <module name="axflow-dto" options="" />
     </option>
   </component>
 </project>
