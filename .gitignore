@@ -1,0 +1,91 @@
+# --- Java ---
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.ctxt
+*.original
+
+# Maven/Gradle 构建输出
+target/
+build/
+out/
+bin/
+.gradle/
+
+# 依赖管理 (Gradle/Maven)
+**/gradle-wrapper.jar
+!gradle-wrapper.jar
+.gradle/
+.mvn/
+mvnw
+mvnw.cmd
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.ipr
+*.iws
+*.ids
+*.orig
+*.swp
+*.swo
+*~
+
+# IDEA 工作区文件
+out/
+.idea_modules/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/shelf/
+.idea/libraries/
+.idea/caches/
+.idea/navEditor.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/sonarlint/
+.idea/sonarlint/issuestore/
+
+# 日志和临时文件
+logs/
+*.log
+tmp/
+temp/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 测试相关
+**/test-output/
+**/test-results/
+**/surefire-reports/
+**/failsafe-reports/
+**/test-reports/
+
+# 其他开发工具
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.vscode/
+*.launch
+*.prefs
+
+# 环境变量文件
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# 本地开发配置文件
+**/application-local.yml
+**/application-dev.yml
+**/application-test.yml

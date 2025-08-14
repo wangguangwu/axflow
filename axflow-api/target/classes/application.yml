@@ -1,4 +1,0 @@
-server:
-  port: 8080
-
-# 示例：在 API 模块把 Adapter 实现绑定到租户（示例装配见 ApiTenantAdaptersConfig）
