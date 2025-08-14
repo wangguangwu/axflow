@@ -14,6 +14,11 @@ import org.springframework.stereotype.Component;
 public class OssImagePortAdapter implements ImagePort {
 
     @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
     public String upload(String imagePath) {
         log.info("[OSS] 模拟上传文件: {}", imagePath);
         return "oss://mock-bucket/" + imagePath.substring(imagePath.lastIndexOf("/") + 1);

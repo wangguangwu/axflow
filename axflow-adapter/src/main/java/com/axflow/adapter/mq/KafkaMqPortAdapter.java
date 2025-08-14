@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author wangguangwu
  */
 @Slf4j
-@Component
+@Component("kafka")
 public class KafkaMqPortAdapter implements MqPort {
 
     @Override
@@ -21,6 +21,5 @@ public class KafkaMqPortAdapter implements MqPort {
     @Override
     public void subscribe(String topic, MessageListener listener) {
         log.info("[Kafka] 模拟订阅主题: {}", topic);
-        // 不实际触发回调
     }
 }

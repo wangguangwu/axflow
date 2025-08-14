@@ -14,6 +14,11 @@ import org.springframework.stereotype.Component;
 public class FtpImagePortAdapter implements ImagePort {
 
     @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
     public String upload(String imagePath) {
         log.info("[FTP] 模拟上传文件: {}", imagePath);
         return "ftp://mock-server/" + imagePath.substring(imagePath.lastIndexOf("/") + 1);

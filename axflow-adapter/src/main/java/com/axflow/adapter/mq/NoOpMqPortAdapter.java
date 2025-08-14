@@ -2,24 +2,24 @@ package com.axflow.adapter.mq;
 
 import com.axflow.port.external.MqPort;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
- * RocketMQ 模拟实现
- *
  * @author wangguangwu
  */
 @Slf4j
-@Component("rocketmq")
-public class RocketMqPortAdapter implements MqPort {
+@Component("noOpMq")
+@Primary
+public class NoOpMqPortAdapter implements MqPort {
 
     @Override
     public void send(String topic, String message) {
-        log.info("[RocketMQ] 模拟发送消息 -> Topic: {}, Body: {}", topic, message);
+        log.info("[NoOp] 租户未启用MQ功能，忽略消息: Topic={}", topic);
     }
 
     @Override
     public void subscribe(String topic, MessageListener listener) {
-        log.info("[RocketMQ] 模拟订阅主题: {}", topic);
+        log.info("[NoOp] 租户未启用MQ订阅: Topic={}", topic);
     }
 }

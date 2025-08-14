@@ -5,7 +5,14 @@ package com.axflow.port.external;
  *
  * @author wangguangwu
  */
-public interface ImagePort  {
+public interface ImagePort {
+
+    /**
+     * 是否启用
+     *
+     * @return true-启用，false-禁用
+     */
+    boolean isEnabled();
 
     /**
      * 上传文件到存储系统
