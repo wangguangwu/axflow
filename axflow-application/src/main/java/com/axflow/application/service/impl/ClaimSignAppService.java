@@ -4,13 +4,13 @@ import com.axflow.application.router.TenantRouter;
 import com.axflow.application.service.ClaimSignUseCase;
 import com.axflow.common.dto.request.ClaimSignReq;
 import com.axflow.domain.Claim;
-import com.axflow.port.ClaimRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -21,19 +21,29 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ClaimSignAppService implements ClaimSignUseCase {
 
-//    private final ClaimRepositoryPort repo;
     private final TenantRouter router;
 
     @Override
+    @Transactional
     public String claimSign(ClaimSignReq req) {
-//        Claim claim = repo.findByCode(req.getClaimCode()).orElseThrow(() -> new IllegalStateException("not found"));
-//        router.validation().validateBeforeAccept(claim, Map.of("images", req.imageRefs(), "operator", req.operatorId()));
-//        router.imageSink().upload(req.imageRefs(), t);
-//        String key = router.keyStrategy(t).nextKey(claim, t);
-//        repo.save(claim, t, key);
-//        byte[] body = ("tenant=" + t.id() + ",code=" + claim.getCode() + ",rid=" + claim.getReceiptId()).getBytes(StandardCharsets.UTF_8);
-//        router.logPublisher(t).publish("receipt.signed", body, t);
-//        log.info("sign completed tenant={} claim={} receiptId={}", t.id(), claim.getCode(), claim.getReceiptId());
+        String claimCode = req.getClaimCode();
+        router.claimRepository().findByClaimCode(claimCode).ifPresent(claim -> {
+            throw new IllegalStateException(String.format("赔案[%s]已签收", claimCode));
+        });
+        // 处理影像件逻辑
+        List<String> imageRefs = req.getImageRefs();
+        List<String> uploadImageRefs = new ArrayList<>();
+        for (String imageRef : imageRefs) {
+            String upload = router.image().upload(imageRef);
+            uploadImageRefs.add(upload);
+        }
+        // 构建 domain 的 claim
+        Claim claim = Claim.builder().claimCode(claimCode)
+                .imageRefs(uploadImageRefs)
+                .build();
+        // 存储数据
+        router.claimRepository().save(claim);
+        // 发送消息
         String taskId = UUID.randomUUID().toString();
         router.mq().send("", taskId);
         return taskId;

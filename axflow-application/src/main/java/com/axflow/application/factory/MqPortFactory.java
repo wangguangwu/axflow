@@ -1,5 +1,6 @@
 package com.axflow.application.factory;
 
+import com.axflow.common.constants.CommonConstant;
 import com.axflow.common.constants.MQPortAdapterConstant;
 import com.axflow.port.MQPort;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,6 @@ public class MqPortFactory {
     }
 
     public MQPort getAdapter(String name) {
-        return mqPortMap.getOrDefault(name, mqPortMap.get(MQPortAdapterConstant.DEFAULT_MQ_PORT_ADAPTER));
+        return mqPortMap.getOrDefault(name, mqPortMap.get(CommonConstant.DEFAULT));
     }
 }

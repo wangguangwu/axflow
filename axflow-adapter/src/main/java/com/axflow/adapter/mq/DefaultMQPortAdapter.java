@@ -1,5 +1,6 @@
 package com.axflow.adapter.mq;
 
+import com.axflow.common.constants.CommonConstant;
 import com.axflow.common.constants.MQPortAdapterConstant;
 import com.axflow.port.MQPort;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ public class DefaultMQPortAdapter implements MQPort {
 
     @Override
     public String name() {
-        return MQPortAdapterConstant.DEFAULT_MQ_PORT_ADAPTER;
+        return CommonConstant.DEFAULT;
     }
 
     @Override

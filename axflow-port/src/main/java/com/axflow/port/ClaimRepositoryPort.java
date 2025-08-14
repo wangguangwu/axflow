@@ -11,8 +11,26 @@ import java.util.Optional;
  */
 public interface ClaimRepositoryPort {
 
-    Optional<Claim> findByCode(String claimCode);
+    /**
+     * 获取端口名称
+     *
+     * @return 端口名称
+     */
+    String name();
 
+    /**
+     * 根据赔案号进行查询
+     *
+     * @param claimCode 赔案号
+     * @return 赔案信息
+     */
+    Optional<Claim> findByClaimCode(String claimCode);
+
+    /**
+     * 保存案件数据
+     *
+     * @param claim 案件数据
+     */
     void save(Claim claim);
 
 }

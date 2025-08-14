@@ -1,8 +1,11 @@
 package com.axflow.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
  * 赔案聚合根（规则与状态演化；无 IO）
@@ -10,26 +13,13 @@ import org.slf4j.LoggerFactory;
  * @author wangguangwu
  */
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Claim {
 
-    private static final Logger log = LoggerFactory.getLogger(Claim.class);
+    private String claimCode;
 
-    public enum Status {NEW, ACCEPTED}
+    private List<String> imageRefs;
 
-    private final String code;
-    private String receiptId;
-    private Status status = Status.NEW;
-
-    public Claim(String code) {
-        this.code = code;
-    }
-
-    public void accept(String operatorId) {
-        if (status != Status.NEW) {
-            throw new IllegalStateException("非法流转");
-        }
-        this.receiptId = "R-" + code;
-        this.status = Status.ACCEPTED;
-        log.info("claim accepted code={} operator={}", code, operatorId);
-    }
 }

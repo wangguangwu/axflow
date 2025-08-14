@@ -12,7 +12,6 @@ public final class MQPortAdapterConstant {
         // 禁止实例化
     }
 
-    public static final String DEFAULT_MQ_PORT_ADAPTER = "default";
     public static final String KAFKA_MQ_PORT_ADAPTER = "kafka";
     public static final String ROCKETMQ_MQ_PORT_ADAPTER = "rocketmq";
 
