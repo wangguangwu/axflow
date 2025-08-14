@@ -1,18 +1,11 @@
-package com.axflow.port;
+package com.axflow.port.external;
 
 /**
  * 消息队列标准操作接口
  *
  * @author wangguangwu
  */
-public interface MQPort {
-
-    /**
-     * 获取端口名称
-     *
-     * @return 端口名称
-     */
-    String name();
+public interface MqPort {
 
     /**
      * 发送消息到指定主题

@@ -1,8 +1,7 @@
 package com.axflow.infrastructure.persistence;
 
-import com.axflow.common.constants.CommonConstant;
 import com.axflow.domain.Claim;
-import com.axflow.port.ClaimRepositoryPort;
+import com.axflow.port.internal.ClaimRepositoryPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -14,11 +13,6 @@ import java.util.Optional;
 @Repository
 @Slf4j
 public class ClaimRepository implements ClaimRepositoryPort {
-
-    @Override
-    public String name() {
-        return CommonConstant.DEFAULT;
-    }
 
     @Override
     public Optional<Claim> findByClaimCode(String claimCode) {

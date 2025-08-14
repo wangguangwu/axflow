@@ -1,4 +1,4 @@
-package com.axflow.port;
+package com.axflow.port.internal;
 
 import com.axflow.domain.Claim;
 
@@ -9,14 +9,7 @@ import java.util.Optional;
  *
  * @author wangguangwu
  */
-public interface ClaimRepositoryPort {
-
-    /**
-     * 获取端口名称
-     *
-     * @return 端口名称
-     */
-    String name();
+public interface ClaimRepositoryPort  {
 
     /**
      * 根据赔案号进行查询

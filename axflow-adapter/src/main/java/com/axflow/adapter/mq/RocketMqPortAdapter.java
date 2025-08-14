@@ -1,7 +1,6 @@
 package com.axflow.adapter.mq;
 
-import com.axflow.common.constants.MQPortAdapterConstant;
-import com.axflow.port.MQPort;
+import com.axflow.port.external.MqPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class RocketMQPortAdapter implements MQPort {
-
-    @Override
-    public String name() {
-        return MQPortAdapterConstant.ROCKETMQ_MQ_PORT_ADAPTER;
-    }
+public class RocketMqPortAdapter implements MqPort {
 
     @Override
     public void send(String topic, String message) {

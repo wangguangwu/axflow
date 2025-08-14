@@ -1,7 +1,6 @@
 package com.axflow.adapter.image;
 
-import com.axflow.common.constants.ImagePortAdapterConstant;
-import com.axflow.port.ImagePort;
+import com.axflow.port.external.ImagePort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +12,6 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class OssImagePortAdapter implements ImagePort {
-
-    @Override
-    public String name() {
-        return ImagePortAdapterConstant.OSS_IMAGE_PORT_ADAPTER;
-    }
 
     @Override
     public String upload(String imagePath) {

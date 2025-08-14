@@ -1,18 +1,11 @@
-package com.axflow.port;
+package com.axflow.port.external;
 
 /**
  * 影像外部操作端口（OSS/FTP 等多实现）
  *
  * @author wangguangwu
  */
-public interface ImagePort {
-
-    /**
-     * 获取端口名称
-     *
-     * @return 端口名称
-     */
-    String name();
+public interface ImagePort  {
 
     /**
      * 上传文件到存储系统
