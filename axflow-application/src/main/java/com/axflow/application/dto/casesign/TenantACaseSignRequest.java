@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class TenantACaseSignRequest extends CaseSignRequest {
 
     private String insuredName;
+
     private String insuredIdNo;
 
 }

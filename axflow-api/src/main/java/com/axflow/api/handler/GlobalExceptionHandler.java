@@ -26,10 +26,9 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiResponse<Void> handleBusinessException(BusinessException e,
                                                      HttpServletRequest request) {
-        log.warn("业务异常 [{}] {} - {}",
+        log.error("业务异常 [{}] {} - {}",
                 request.getMethod(),
-                request.getRequestURI(),
-                e.getMessage());
+                request.getRequestURI(), e.getMessage(), e);
         return ApiResponse.fail(e.getCode(), e.getMessage());
     }
 
@@ -38,13 +37,11 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiResponse<Void> handleSystemException(Exception e,
                                                    HttpServletRequest request) {
-        String errorId = UUID.randomUUID().toString();
-        log.error("系统异常 [ID:{}] [{}] {} - ",
-                errorId,
+        log.error("系统异常 [ID: [{}] {} - ",
                 request.getMethod(),
                 request.getRequestURI(),
                 e);
-        return ApiResponse.fail(ResponseStatusEnum.FAILED.getCode(), "系统繁忙，请稍后重试（错误ID: " + errorId + ")");
+        return ApiResponse.fail(ResponseStatusEnum.FAILED.getCode(), "执行错误: " + e.getMessage());
     }
 }
 
